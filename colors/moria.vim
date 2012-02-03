@@ -23,7 +23,7 @@ endif
 let colors_name = "moria"
 
 if s:moria_style == "dark"
-    hi Normal ctermbg=0 ctermfg=7 guibg=#202020 guifg=#d0d0d0 gui=none
+    hi Normal ctermbg=0 ctermfg=7 guibg=#242644 guifg=#d0d0d0 gui=none
 
     hi Cursor guibg=#ffa500 guifg=bg gui=none
     hi CursorColumn guibg=#444444 gui=none

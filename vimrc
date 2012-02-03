@@ -1,16 +1,10 @@
-" vgod's vimrc
-" Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
-" Fork me on GITHUB  https://github.com/vgod/vimrc
-
-" read https://github.com/vgod/vimrc/blob/master/README.md for more info
-
+" Jonah Werre's vimrc
 
 " For pathogen.vim: auto load all plugins in .vim/bundle
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " General Settings
-
 set nocompatible	" not compatible with the old-fashion vi mode
 set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
@@ -26,12 +20,11 @@ filetype plugin on    " Enable filetype-specific plugins
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 if has("gui_running")	" GUI color and font settings
-  set guifont=Osaka-Mono:h20
+  set guifont=Osaka-Mono:h18
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
@@ -73,6 +66,9 @@ set tm=500
    au FileType Makefile set noexpandtab
 "}      							
 
+" directory to store temp swp files
+set directory=~/.vim/tmp 
+
 " status line {
 set laststatus=2
 set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
@@ -111,6 +107,16 @@ fun! Replace()
     :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
     :unlet! s:word 
 endfun 
+
+"--------------------------------------------------------------------------- 
+" Visual Mode Maps
+"--------------------------------------------------------------------------- 
+" yank a line and go to end of yank
+vmap y y`]
+" move multiple line up
+vmap <C-Up> xkP`[V`]
+" move multiple line down
+vmap <C-Down> xp`[V`]
 
 
 "--------------------------------------------------------------------------- 
@@ -158,6 +164,10 @@ map <S-L> gt
 map <C-t><C-t> :tabnew<CR>
 " close tab
 map <C-t><C-w> :tabclose<CR> 
+" Next Tab - Command right
+nmap <D-right> :tabn<cr>
+" Previous Tab - Command left
+nmap <D-left> :tabp<cr>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
@@ -217,11 +227,8 @@ endfun
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType java set omnifunc=javacomplete#Complete
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
@@ -262,24 +269,37 @@ fun! Big5()
 	set fileencoding=big5
 endfun
 
+"-----------------------
+" ABBREVIATIONS
+"-----------------------
+ia lorem1 Nulla facilisi. Pellentesque quis eros non ipsum sodales sagittis id vel urna. Nullam vulputate scelerisque tincidunt. Proin sagittis fringilla erat, vitae ultricies ipsum feugiat sit amet. In hac habitasse platea dictumst. In a nisi nulla. Fusce et sem mauris. Nam quis porta risus. Donec ultricies condimentum erat a congue. Praesent euismod tristique lacinia. Sed ut risus enim. Suspendisse ligula magna, tempor eu lacinia ac, adipiscing a ligula.<cr>
+
+ia lorem2 Orbi posuere lorem sit amet dui euismod eu fermentum tellus tincidunt. Proin consequat tellus et odio tincidunt hendrerit. Donec tellus nibh, lobortis id eleifend eu, hendrerit quis augue. Cras sodales scelerisque purus, congue auctor turpis scelerisque vitae. Ut arcu lectus, vestibulum nec rhoncus sed, sodales eu tortor. Nunc id mauris enim, blandit tincidunt lorem. Vivamus porttitor neque a sapien facilisis varius. Integer at venenatis dolor.<cr>Nam sapien lectus, venenatis ac iaculis semper, pellentesque ut turpis. Vivamus ipsum lacus, rhoncus et tempor sed, blandit sed erat. Nam in dolor ac lacus convallis consequat eget eget sem. Sed convallis arcu placerat risus feugiat malesuada. Pellentesque in purus sem, et mollis ligula. Praesent aliquet, ligula sit amet convallis condimentum, quam mi rhoncus nisl, sit amet cursus tellus nunc eu lorem. Donec dapibus lacinia massa in ultrices. Mauris augue orci, pellentesque vel auctor eu, pharetra nec magna. Vestibulum imperdiet eros lectus, at lacinia leo. Fusce sed leo nibh, ut ultricies quam.
+
+ia lorem3 Vestibulum et quam neque, sit amet dapibus mi. Nam vehicula nunc at dolor dapibus ac ornare nibh posuere. Cras tincidunt sodales laoreet. Morbi non massa turpis, eu molestie dui. Vivamus ut dapibus lectus. Pellentesque fermentum, nisi sed volutpat lobortis, arcu ligula porttitor sem, sit amet placerat mauris felis non magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin fermentum purus id mi blandit tempus. In quam justo, vehicula dapibus ornare id, mattis vel purus. Praesent at sem quis mauris mollis venenatis. Quisque rhoncus condimentum augue ac gravida. Mauris velit ipsum, hendrerit eu tincidunt id, congue nec metus.<cr>Mauris sit amet risus turpis. Etiam sagittis vehicula lacus, et varius felis dapibus id. Nulla dictum arcu nec turpis mollis posuere. Sed vehicula consequat quam eu pulvinar. Nullam non mauris id leo malesuada faucibus eu in massa. Nullam a orci ipsum. Proin condimentum sem id felis commodo nec scelerisque orci fringilla. Cras dui turpis, accumsan quis rhoncus vel, posuere sollicitudin diam. In libero diam, sollicitudin at elementum sit amet, ornare sagittis diam. Quisque suscipit nisi et purus lacinia vel elementum dui porttitor. Aenean non metus in eros porta fringilla a sed augue. Etiam tristique rhoncus semper. Integer non leo leo.<cr>Aliquam rutrum felis quis magna dictum vestibulum. Praesent volutpat ante vel velit convallis fringilla. Suspendisse eu sem id metus cursus convallis eu eget quam. Cras consequat placerat velit, sit amet lacinia nibh faucibus vitae. Proin aliquam nulla accumsan leo consequat et tincidunt felis tincidunt. Pellentesque adipiscing, ipsum at accumsan gravida, augue tellus posuere velit, ac molestie eros enim ac orci. Nullam nulla urna, ullamcorper ut feugiat in, accumsan ut erat. Suspendisse id facilisis enim. Cras eleifend, tortor ut consectetur euismod, leo neque facilisis felis, auctor vulputate dolor ligula sit amet ipsum. Quisque convallis, ipsum pharetra faucibus malesuada, leo nibh eleifend justo, at ullamcorper nisi felis at tellus. Nullam interdum viverra mi dignissim tincidunt. Aenean bibendum congue ipsum, id lobortis risus gravida ac.
+
+"-----------------------
+" SPELLING
+"-----------------------
+setlocal spell spelllang=en_us
+set spell               "turn on spell checking
+"   Correct some spelling mistakes    "
+ia teh      the
+ia htis     this
+ia tihs     this
+ia funciton function
+ia fucntion function
+ia funtion  function
+ia retunr   return
+ia reutrn   return
+ia sefl     self
+ia eslf     self
+ia widht    width
+ia heigth   height
 
 "--------------------------------------------------------------------------- 
 " PLUGIN SETTINGS
 "--------------------------------------------------------------------------- 
-
-" ------- vim-latex - many latex shortcuts and snippets {
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-set grepprg=grep\ -nH\ $*
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-"}
-
 
 " --- AutoClose - Inserts matching bracket, paren, brace or quote 
 " fixed the arrow key problems caused by AutoClose
@@ -308,7 +328,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
-
 
 " --- TagBar
 " toggle TagBar with F7
