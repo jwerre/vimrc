@@ -316,8 +316,6 @@ if !has("gui_running")
    nmap OD h
 endif
 
-
-
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
