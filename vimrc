@@ -28,11 +28,10 @@ if has("gui_running")	" GUI color and font settings
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
-  colors moria
-  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
+  colors moria          "theme
+  highlight CursorLine  guibg=#003853 ctermbg=24  gui=none cterm=none
 else
-" terminal color settings
-  colors vgod
+  colors moria2         " terminal color settings 
 endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
@@ -69,7 +68,7 @@ set tm=500
 " directory to store temp swp files
 set directory=~/.vim/tmp 
 
-" status line {
+" status line 
 set laststatus=2
 set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
 set statusline+=\ \ \ [%{&ff}/%Y] 
@@ -88,12 +87,6 @@ function! HasPaste()
         return ''
     endif
 endfunction
-
-"}
-
-
-" C/C++ specific settings
-autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,^-1s,:0,=s,g0,h1s,p2,t0,+2,(2,)20,*30
 
 "Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
