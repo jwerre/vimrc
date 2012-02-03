@@ -5,3 +5,4 @@ if has("gui_macvim")
    map <D-t> :CommandT<CR>
 endif
 
+set guioptions-=T		"remove tool bar

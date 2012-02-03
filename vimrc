@@ -67,8 +67,8 @@ set tm=500
 
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
-   set softtabstop=3 
-   set shiftwidth=3 
+   set softtabstop=4 
+   set shiftwidth=4 
 
    au FileType Makefile set noexpandtab
 "}      							
@@ -116,6 +116,10 @@ endfun
 "--------------------------------------------------------------------------- 
 " USEFUL SHORTCUTS
 "--------------------------------------------------------------------------- 
+
+"map space to :
+nmap <space> :
+
 " set leader to ,
 let mapleader=","
 let g:mapleader=","
