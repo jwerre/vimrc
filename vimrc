@@ -120,8 +120,8 @@ vmap <C-Down> xp`[V`]
 nmap <space> :
 
 " set leader to ,
-let mapleader=","
-let g:mapleader=","
+let mapleader="'"
+let g:mapleader="'"
 
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
