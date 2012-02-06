@@ -52,6 +52,6 @@
 [submodule "bundle/zen"]
 	path = bundle/zen
 	url = https://github.com/mattn/zencoding-vim.git
-[submodule "bundle/snipmate"]
+[submodule "/Users/jw/.vim/bundle/snipmate"]
 	path = bundle/snipmate
-	url = git@github.com:jwerre/vim.config.git
+	url = https://jwerre@github.com/jwerre/snipmate.vim.git

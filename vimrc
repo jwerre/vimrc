@@ -48,6 +48,7 @@ set copyindent		" copy the previous indentation on autoindenting
 set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
 set smarttab		" insert tabs on the start of a line according to context
+set number              " show line numbers
 
 " disable sound on errors
 set noerrorbells
@@ -118,8 +119,8 @@ vmap <C-Down> xp`[V`]
 nmap <space> :
 
 " set leader to ,
-let mapleader=","
-let g:mapleader=","
+let mapleader="'"
+let g:mapleader="'"
 
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
@@ -143,13 +144,6 @@ nmap <c-l> <c-w>l<c-w><bar>
 set wmw=0                     " set the min width of a window to 0 so we can maximize others 
 set wmh=0                     " set the min height of a window to 0 so we can maximize others
 " }
-
-" move around tabs. conflict with the original screen top/bottom
-" comment them out if you want the original H/L
-" go to prev tab 
-map <S-H> gT
-" go to next tab
-map <S-L> gt
 
 " new tab
 map <C-t><C-t> :tabnew<CR>

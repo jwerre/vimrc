@@ -32,6 +32,7 @@ MANUALLY INSTALL
 3. (Optional, if you want Command-T) Compile the Command-T plugin
 
         cd .vim/bundle/command-t/ruby/command-t
+        NOTE: If you are not running the default OSX verions of Ruby (1.8.7) then $ rvm use system
         ruby extconf.rb
         make
 
