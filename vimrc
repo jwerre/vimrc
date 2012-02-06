@@ -198,6 +198,16 @@ autocmd BufRead *.php set ft=php.html
 autocmd BufNewFile *.php set ft=php.html
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
+"-----------------------
+" VISUAL MODE MAPS
+"-----------------------
+" yank a line and go to end of yank
+vmap y y`]
+" move multiple line up
+vmap <D-Up> xkP`[V`]
+" move multiple line down
+vmap <D-Down> xp`[V`]
+
 "--------------------------------------------------------------------------- 
 " PROGRAMMING SHORTCUTS
 "--------------------------------------------------------------------------- 
