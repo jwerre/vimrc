@@ -17,8 +17,6 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
 
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
@@ -177,8 +175,6 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" :cd. change working directory to that of the current file
-cmap cd. lcd %:p:h
 
 " Writing Restructured Text (Sphinx Documentation) {
    " Ctrl-u 1:    underline Parts w/ #'s
@@ -197,6 +193,16 @@ cmap cd. lcd %:p:h
    noremap  <C-u>5 yypVr^
    inoremap <C-u>5 <esc>yypVr^A
 "}
+
+"-----------------------
+" AUTO COMMANDS
+"-----------------------
+autocmd! bufwritepost .vimrc source ~/.vimrc    " auto reload vimrc when editing it
+autocmd BufEnter * cd %:p:h                     "automatically change current directory to that of the file in buffer
+autocmd Bufread,BufNewFile *.as set filetype=actionscript
+autocmd BufRead *.php set ft=php.html
+autocmd BufNewFile *.php set ft=php.html
+autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 "--------------------------------------------------------------------------- 
 " PROGRAMMING SHORTCUTS
