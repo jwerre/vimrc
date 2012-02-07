@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/jw/Sites/125_CHATTERPLUG/001_SITE'
-let g:netrw_dirhist_2='/Users/jw/Sites/125_CHATTERPLUG/001_SITE/public'
-let g:netrw_dirhist_3='/Users/jw/Sites/125_CHATTERPLUG/001_SITE/public/javascripts'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/'
+let g:netrw_dirhist_2='/Users/jw/Work/125_CHATTERPLUG/001_SITE/public'
+let g:netrw_dirhist_3='/Users/jw/Work/125_CHATTERPLUG/001_SITE'
+let g:netrw_dirhist_4='/Users/jw/Work/125_CHATTERPLUG/001_SITE/app'
+let g:netrw_dirhist_5='/Users/jw/Work/125_CHATTERPLUG/001_SITE/app/views'
+let g:netrw_dirhist_6='/Users/jw/Work/125_CHATTERPLUG/001_SITE/app/views/home'
+let g:netrw_dirhist_7='/Users/jw/Work/125_CHATTERPLUG/001_SITE/app/views'
+let g:netrw_dirhist_8='/Users/jw/Work/125_CHATTERPLUG/001_SITE'

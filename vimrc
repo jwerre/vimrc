@@ -150,9 +150,9 @@ map <C-t><C-t> :tabnew<CR>
 " close tab
 map <C-t><C-w> :tabclose<CR> 
 " Next Tab - Command right
-nmap <D-right> :tabn<cr>
+nmap <C-right> :tabn<cr>
 " Previous Tab - Command left
-nmap <D-left> :tabp<cr>
+nmap <C-left> :tabp<cr>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
@@ -192,7 +192,7 @@ vnoremap > >gv
 " AUTO COMMANDS
 "-----------------------
 autocmd! bufwritepost .vimrc source ~/.vimrc    " auto reload vimrc when editing it
-autocmd BufEnter * cd %:p:h                     "automatically change current directory to that of the file in buffer
+"autocmd BufEnter * cd %:p:h                     "automatically change current directory to that of the file in buffer
 autocmd Bufread,BufNewFile *.as set filetype=actionscript
 autocmd BufRead *.php set ft=php.html
 autocmd BufNewFile *.php set ft=php.html
@@ -228,10 +228,10 @@ endfun
 
 
 " Enable omni completion. (Ctrl-X Ctrl-O)
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
@@ -329,12 +329,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
-
-" --- TagBar
-" toggle TagBar with F7
-nnoremap <silent> <F7> :TagbarToggle<CR> 
-" set focus to TagBar when opening it
-let g:tagbar_autofocus = 1
 
 " --- PowerLine
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
